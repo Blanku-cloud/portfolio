@@ -5,7 +5,7 @@ const deconstructWord = 'Scroll'.split('')
 </script>
 
 <template>
-  <div class="bg-emerald-200">
+  <div class="mx-5">
     <header>
       <HomeHeader></HomeHeader>
     </header>
@@ -16,6 +16,11 @@ const deconstructWord = 'Scroll'.split('')
     </div>
     <main>
       <HomeBody></HomeBody>
+      <img
+        src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60"
+        alt=""
+        srcset=""
+      />
     </main>
     <footer></footer>
   </div>

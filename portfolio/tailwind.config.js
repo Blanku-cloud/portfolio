@@ -6,6 +6,11 @@ module.exports = {
       fontFamily: {
         rubik: ['Rubik', 'sans-serif']
       }
+    },
+    colors: {
+      bg: { black: '#222', grey: '#000' },
+      'tainted-white': '#f5f5f5',
+      test: '#24c887'
     }
   },
   plugins: []
