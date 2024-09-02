@@ -1,0 +1,74 @@
+{
+  "experience": [
+    {
+      "name": "Tip Top Technology",
+      "title": "Software Engineer Intern",
+      "link": "http://tiptopt.com",
+      "year": 2023,
+      "desc": "TipTop Technologies has built a one-of-a-kind, robust, widely-applicable, data and industry-agnostic, proprietary Artificial Intelligence platform, MindWave. Unsurprisingly, our platform is these days rapidly becoming the AI platform of choice for a growing number of enterprises all over the world. You can read more about the MindWave AI platform here.",
+      "imgs": [
+        ".././tiptop/tiptop1.png",
+        ".././tiptop/tiptop2.png",
+        ".././tiptop/tiptop3.png"
+      ]
+    },
+    {
+      "name": "Michigan Data Science Team",
+      "title": "Member",
+      "link": "https://mdst.club",
+      "year": 2023,
+      "desc": "MDST's semesterly projects teach U-M students how to use data science to solve problems, offering them the chance to learn key skills and work with emerging tech.",
+      "imgs": [
+        ".././mdst/mdst1.png",
+        ".././mdst/mdst2.png",
+        ".././mdst/mdst3.png"
+      ]
+    },
+    {
+      "name": "Nourishing Hands Inc",
+      "title": "Frontend Engineer",
+      "link": "https://nourishinghandsinc.org",
+      "year": 2022,
+      "desc": "Nourishing Hands is a nonprofit organization serving youth ages 14-24 from minority and low-income communities in Georgia. To provide relevant resources, opportunities, and experiences for youth through mentoring, empowering them for future success.",
+      "imgs": [
+        ".././nourshing/nourshing1.png",
+        ".././nourshing/nourshing2.png",
+        ".././nourshing/nourshing3.png"
+      ]
+    }
+  ],
+  "project": [
+    {
+      "name": "Geogussr Clone",
+      "title": "",
+      "link": "http://example.com",
+      "year": 2024,
+      "desc": "",
+      "imgs": [
+        ".././geo-clone/geo-clone1.png",
+        ".././geo-clone/geo-clone2.png",
+        ".././geo-clone/geo-clone3.png"
+      ]
+    },
+    {
+      "name": "CoolPost",
+      "title": "",
+      "link": "https://coolposts.netlify.app",
+      "year": 2023,
+      "desc": "",
+      "imgs": [
+        ".././coolpost/coolpost1.png",
+        ".././coolpost/coolpost2.png",
+        ".././coolpost/coolpost3.png"
+      ]
+    },
+    {
+      "name": "Tech Club Attendance",
+      "title": "",
+      "link": "https://tech-club-attendance.netlify.app",
+      "year": 2023,
+      "desc": "",
+      "imgs": [".././tech-club-attendance/tech-club-attendance1.png"]
+    }
+  ]
+}
