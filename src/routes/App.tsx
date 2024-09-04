@@ -1,66 +1,10 @@
 import SocialMedia from "../components/SocialMedia";
 import ListContainer from "../components/ListContainer";
 import Popup from "../components/Popup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { SocialMediaList, PopupList, ListType } from "../type/type";
 import popupData from "../data/popupData.json";
 import socailMedialList from "../data/socialMediaList.json";
-
-// type workProps = {
-//   name: string;
-//   year: number;
-// };
-// const works: workProps[] = [
-//   {
-//     name: "Tip Top Technology",
-//     year: 2023,
-//   },
-//   {
-//     name: "Michigan Data Science Team",
-//     year: 2023,
-//   },
-//   {
-//     name: "Nourishing Hands",
-//     year: 2023,
-//   },
-// ];
-
-// const projects: workProps[] = [
-//   {
-//     name: "Geogussr Clone",
-//     year: 2024,
-//   },
-
-//   {
-//     name: "CoolPost",
-//     year: 2023,
-//   },
-//   {
-//     name: "Club Attendance",
-//     year: 2023,
-//   },
-// ];
-
-// type ListProps = {
-//   experiences: {
-//     title: string;
-//     item: workProps[];
-//   };
-//   project: {
-//     title: string;
-//     item: workProps[];
-//   };
-// };
-// const lists: ListProps = {
-//   experiences: {
-//     title: "Experiences",
-//     item: works,
-//   },
-//   project: {
-//     title: "Projects",
-//     item: projects,
-//   },
-// };
 
 function getTitle(lists: PopupList): ["experience", "project"] {
   const item: string[] = Object.keys(lists);
@@ -104,20 +48,62 @@ function App() {
     return data;
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const popups = document.querySelectorAll(".popup");
+      const isClickInsidePopup = Array.from(popups).some((popup) =>
+        popup.contains(target)
+      );
+
+      if (!isClickInsidePopup) {
+        setClick(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const experiencePopup = popData.experience.map((item, index) => (
+    <Popup
+      setClick={setClick}
+      key={index}
+      hover={hoverList.hover}
+      hoverName={hoverList.listName}
+      name={item.name}
+      title={item.title}
+      link={item.link}
+      desc={item.desc}
+      imgs={item.imgs}
+      click={click}
+    />
+  ));
+  const projectPopup = popData.project.map((item, index) => (
+    <Popup
+      setClick={setClick}
+      key={index}
+      hover={hoverList.hover}
+      hoverName={hoverList.listName}
+      name={item.name}
+      title={item.title}
+      link={item.link}
+      desc={item.desc}
+      imgs={item.imgs}
+      click={click}
+    />
+  ));
+
   return (
     <>
-      <div className="grid grid-cols-12 grid-rows-2 h-screen px-20 py-12 bg-black relative overflow-hidden">
-        <Popup
-          hover={hoverList.hover}
-          name={list[hoverList.listIndex as number]?.name ?? ""}
-          title={list[hoverList.listIndex as number]?.title ?? ""}
-          link={list[hoverList.listIndex as number]?.link ?? ""}
-          desc={list[hoverList.listIndex as number]?.desc ?? ""}
-          imgs={list[hoverList.listIndex as number]?.imgs ?? []}
-          click={click}
-        />
+      <div className="grid grid-cols-12 grid-rows-2 h-screen lg:px-20 px-5 py-12 bg-black relative overflow-hidden z-10 ">
+        {experiencePopup}
+        {projectPopup}
         <div className="font-nerko-one text-7xl col-span-12 sm:col-span-8 text-white/85">
-          <h1 className="">
+          <h1 className="lg:text-[5.4vw] text-[8.4vw]">
             <p>Michael Chen</p>
             <p className="pl-16">Software Engineer</p>
           </h1>
@@ -126,9 +112,10 @@ function App() {
           <SocialMedia socialMedias={socialMediaList} />
         </div>
         <div className="z-10 self-end col-span-12 grid grid-cols-1 sm:grid-cols-2 h-fit  text-white">
-          <div className=" min-h-48 relative z-0">
+          <div className="min-h-48 relative z-0">
             <ul className="text-xl mb-1 flex gap-3">{titleList}</ul>
             <ListContainer
+              hoverList={hoverList}
               list={nameAndYear()}
               setHoverList={setHoverList}
               setClick={setClick}

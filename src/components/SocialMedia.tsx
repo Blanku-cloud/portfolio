@@ -19,5 +19,5 @@ export default function SocialMedia({ socialMedias }: SocialMediaProps) {
       </a>
     </li>
   ));
-  return <ul className="flex gap-4 w-full justify-end">{SocialMedia}</ul>;
+  return <ul className="flex gap-4 w-full lg:justify-end">{SocialMedia}</ul>;
 }

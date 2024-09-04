@@ -14,6 +14,11 @@ interface ListContainerProps {
       listIndex: number | null;
     }>
   >;
+  hoverList: {
+    hover: boolean;
+    listName: string | null;
+    listIndex: number | null;
+  };
   setClick: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -21,6 +26,7 @@ export default function ListContainer({
   list,
   setHoverList,
   setClick,
+  hoverList,
 }: ListContainerProps) {
   const [hoverIndex, setHoverIndex] = useState<number | null>();
 
@@ -42,9 +48,8 @@ export default function ListContainer({
   const offHover = (): void => {
     setHoverIndex(null);
     setHoverList({
+      ...hoverList,
       hover: false,
-      listName: null,
-      listIndex: null,
     });
   };
   const onClick = (): void => {
@@ -53,7 +58,7 @@ export default function ListContainer({
 
   const listItem = list.map((item, index) => (
     <li
-      className="flex justify-between text-start cursor-pointer  text-lg"
+      className="flex justify-between text-start cursor-pointer  text-lg lg:my-2 my-4"
       key={index}
       onMouseEnter={() => onHover(index, item.name)}
       onMouseLeave={() => offHover()}
@@ -71,8 +76,8 @@ export default function ListContainer({
       <span
         className={`flex-grow ease-in duration-200 ${
           hoverIndex !== null && hoverIndex !== index
-            ? "text-white/50"
-            : "text-white/80"
+            ? "lg:text-white/50 text-white"
+            : "text-white"
         }`}
       >
         {item.name}
